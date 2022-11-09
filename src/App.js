@@ -1,25 +1,24 @@
 import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from '@mui/material';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import './App.css';
+import './headers/Title';
+import Title from './headers/Title';
+import Header from './headers/Header';
+import Body from './content/Body';
+
+const App = () => {
+  return(
+    <div>
+        {/* <Title /> */}
+        <Header />
+        <Body />
     </div>
   );
 }
-
+    
 export default App;
+
+
+//https://bareynol.github.io/mui-theme-creator/
+//https://www.youtube.com/watch?v=M3m7qvHF-uc&list=PLUUJFyE9Edfa2F_F5J0SiBKH0A3jee2Zb - ne bas precizno sta mi triba ali ima informacija primjera, bolje traziti muiV5 tutorial
