@@ -4,6 +4,8 @@ import { createTheme } from "@mui/system";
 
 const theme = createTheme({
      palette: {
+      mode: light,
+      
        primary: {
          main: orange[500],
        },
@@ -19,3 +21,18 @@ const theme = createTheme({
 });
 
 export default theme;
+
+//TODO: try to adjust the theme by this:
+/*
+const theme = createMuiTheme();
+const useStyles = makeStyles((theme) => {
+  root: {
+    // some CSS that accesses the theme
+  }
+});
+
+function themeprovider() {
+  return Themeprovider theme = {theme}>{}</...
+}
+export...
+*/

@@ -22,3 +22,4 @@ export default App;
 
 //https://bareynol.github.io/mui-theme-creator/
 //https://www.youtube.com/watch?v=M3m7qvHF-uc&list=PLUUJFyE9Edfa2F_F5J0SiBKH0A3jee2Zb - ne bas precizno sta mi triba ali ima informacija primjera, bolje traziti muiV5 tutorial
+//https://www.youtube.com/watch?v=SUEkAOuQZTQ&t=1s  - advanced themes(only single class)

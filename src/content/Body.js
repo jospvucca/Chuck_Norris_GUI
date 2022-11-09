@@ -1,5 +1,6 @@
 import { Card, Container, Typography } from "@mui/material";
 import React from "react";
+import CardContainer from "./CardContainer";
 
 const Body = () => {
     return(
@@ -8,10 +9,8 @@ const Body = () => {
                 <Typography className = "functionality-description" variant = "h6" align="center" paddingTop={{paddingTop: "1rem"}} color={{color: "grey"}} paragraph>
                     Would you kindly try out our jokes API?
                 </Typography>
-                <Container maxWidth = "sm" sx = {{display: "table-header-group"}}>
-                    <Card>
-                        <Typography>Hello</Typography>
-                    </Card>
+                <Container maxWidth = "sm">
+                    <CardContainer />
                 </Container>
             </main>
         </React.Fragment>
