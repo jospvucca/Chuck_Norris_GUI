@@ -6,6 +6,7 @@ import './headers/Title';
 import Title from './headers/Title';
 import Header from './headers/Header';
 import Body from './content/Body';
+import Footer from './footing/Footer';
 
 const App = () => {
   return(
@@ -13,6 +14,7 @@ const App = () => {
         {/* <Title /> */}
         <Header />
         <Body />
+        <Footer />
     </div>
   );
 }

@@ -1,10 +1,21 @@
 import React from "react";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 
-const CardEl = () => {
+function CardEl(card) {
     return(
-        <React.Fragment>
-
-        </React.Fragment>
+        <Grid item key = {card} xs = {12} sm = {8} md = {6}>
+            <Card size = "lg">
+                <CardMedia image = "https://source.unsplash.com/random" title = "imagetitle"/>      {/* image not showing, needs to implement it in theme */}
+                <CardContent>
+                    <Typography gutterBottom variant="h5">Title</Typography>
+                    <Typography>This is where the joke is displayed</Typography>
+                </CardContent>
+                <CardActions>
+                    <Button size = "small" color = "primary">Like</Button>
+                    <Button size = "small" color = "error">Remove from favourites</Button>
+                </CardActions>
+            </Card>
+        </Grid>
     );
 }
 
