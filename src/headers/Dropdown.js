@@ -8,7 +8,7 @@ export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   
-  const [currentSite, setCurrentSite] = useState("");
+  const [currentSite, setCurrentSite] = useState("Home");
   
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -21,9 +21,9 @@ export default function BasicMenu() {
   };
   //TODO: onclick redirect(possibly in effect)
 
-//   useEffect(() => {
-//     console.log("Use effect ran: " + currentSite);
-//   }, [currentSite]);
+   useEffect(() => {
+     console.log("Use effect ran: " + currentSite);
+   }, [currentSite]);
 
   return (
     <div>
@@ -34,6 +34,7 @@ export default function BasicMenu() {
         aria-expanded={open ? 'true' : undefined}
         size = "large"
         value = "Home"
+        sx = {{width: "10rem"}}
         onClick={handleClick}
         startIcon = {<MenuOpenIcon />}>
         {currentSite}
@@ -46,9 +47,8 @@ export default function BasicMenu() {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}>
-        <MenuItem key={1} value = "Profile" onClick={e => handleClose(e, "Profile")}>Profile</MenuItem>
-        <MenuItem key={2} value = "Profile" onClick={handleClose}>My account</MenuItem>
-        <MenuItem key={3} value = "Profile" onClick={handleClose}>Logout</MenuItem>
+        <MenuItem key={1} value = "Profile" onClick={e => handleClose(e, "Home")}>Home</MenuItem>
+        <MenuItem key={2} value = "Profile" onClick={e => handleClose(e, "Favourites")}>Favourites</MenuItem>
       </Menu>
     </div>
   );

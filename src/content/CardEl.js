@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 
 function CardEl(card) {
+
+    console.log("CardEl::Card: " + JSON.stringify(card));
+
     return(
         <Grid item key = {card} xs = {12} sm = {8} md = {6}>
             <Card size = "lg">

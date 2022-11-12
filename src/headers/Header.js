@@ -12,7 +12,7 @@ const Header = () => {
                     {/* <Button startIcon = {<MenuOpenIcon fontSize = "large" />} size = "large" /> */}
                     <Dropdown />
                     <Typography variant = "h3" alignSelf={{alignSelf: "center"}}>Chuck Norris GUI</Typography>
-                    <div/>
+                    <div style={{paddingLeft: "10rem"}}/>
                 </Toolbar>
             </AppBar>
         </React.Fragment>

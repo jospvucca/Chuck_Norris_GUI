@@ -1,16 +1,18 @@
 import { Card, Container, Typography } from "@mui/material";
 import React from "react";
 import CardContainer from "./CardContainer";
+import SingleContainer from "./single/SingleContainer";
 
 const Body = () => {
     return(
         <React.Fragment>
-            <main>
+            <main style={{paddingBottom: "1rem"}}>
                 <Typography className = "functionality-description" variant = "h6" align="center" paddingTop={{paddingTop: "1rem"}} color={{color: "grey"}} paragraph>
                     Would you kindly try out our jokes API?
                 </Typography>
                 <Container maxWidth = "sm">
-                    <CardContainer />
+                    {/* <CardContainer /> This is prob a favourites list, should be able to switch between*/}
+                    <SingleContainer />
                 </Container>
             </main>
         </React.Fragment>
