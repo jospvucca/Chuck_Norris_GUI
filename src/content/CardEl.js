@@ -22,3 +22,5 @@ function CardEl(card) {
 export default CardEl;
 
 //this will represent each joke object
+
+//consider using for joke: https://mui.com/material-ui/react-textarea-autosize/
