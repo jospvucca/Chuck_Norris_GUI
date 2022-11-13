@@ -1,16 +1,35 @@
-import React from "react";
+import React, { forwardRef, useEffect, useImperativeHandle, useLayoutEffect, useState } from "react";
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 
-function CardEl(card) {
+const CardEl = forwardRef((props, ref) => {
 
-    console.log("CardEl::Card: " + JSON.stringify(card));
+    console.log("CardEl::props: " + toString(props));
+    console.log("CardEl::Card: " + JSON.stringify(ref));
+    const [value, setValue] = useState("DEFAULT");
+    
+
+    // useLayoutEffect(() => {
+    //     updateValues(value);
+    // }, [value]);
+
+    function updateValues(newValues) {
+
+        console.log("Updated values: " + newValues);
+        setValue(newValues);
+    };
+
+    useImperativeHandle(ref, () => {
+        if(ref !== null || ref !== undefined) {
+            updateValues(ref);
+        }
+    });
 
     return(
-        <Grid item key = {card} xs = {12} sm = {8} md = {6}>
+        <Grid item key = {ref} xs = {12} sm = {8} md = {6}>
             <Card size = "lg">
                 <CardMedia image = "https://source.unsplash.com/random" title = "imagetitle"/>      {/* image not showing, needs to implement it in theme */}
                 <CardContent>
-                    <Typography gutterBottom variant="h5">Title</Typography>
+                    <Typography gutterBottom variant="h5">{value}</Typography>
                     <Typography>This is where the joke is displayed</Typography>
                 </CardContent>
                 <CardActions>
@@ -20,7 +39,7 @@ function CardEl(card) {
             </Card>
         </Grid>
     );
-}
+});
 
 export default CardEl;
 
