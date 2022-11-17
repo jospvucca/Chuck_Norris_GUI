@@ -7,8 +7,11 @@ import Title from './headers/Title';
 import Header from './headers/Header';
 import Body from './content/Body';
 import Footer from './footing/Footer';
+import { useState } from 'react';
 
 const App = () => {
+
+  const [page, setPage] = useState("Home");
 
   //  ----  ----  LOGIC ----  ----  //
   // const [loading, setLoading] = useState(false);
@@ -53,10 +56,10 @@ const App = () => {
   ////////////////////////////////////
 
   return(
-    <div>
+    <div className = "App">
         {/* <Title /> */}
-        <Header />
-        <Body />
+        <Header setPage = {setPage}/>
+        <Body page = {page}/>
         <Footer />
     </div>
   );
@@ -73,3 +76,5 @@ export default App;
 //https://github.com/leonardomso/chuck-cli  - old, might be useful
 
 //https://mui.com/material-ui/react-click-away-listener/  - when i want to click randomly to close menu
+
+//https://stackoverflow.com/questions/55726886/react-hook-send-data-from-child-to-parent-component  - sending params child<->parent

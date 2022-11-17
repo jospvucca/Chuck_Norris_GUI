@@ -18,6 +18,22 @@ const theme = createTheme({
         default: grey[100]
        },
      },
+
+     typography: {
+       h3: {
+         fontWeight: 700,
+         fontSize: "2.2rem",
+         fontFamily: "Roboto",
+         letterSpacing: "0rem",
+       },
+       
+      h6: {
+        fontWeight: 500,
+        fontSize: "1.25rem",
+        fontFamily: "Roboto",
+        letterSpacing: "0.025rem",
+      },
+     }
 });
 
 export default theme;
@@ -38,3 +54,4 @@ export...
 */
 
 //Google for better solutions
+//https://mui.com/material-ui/customization/default-theme/

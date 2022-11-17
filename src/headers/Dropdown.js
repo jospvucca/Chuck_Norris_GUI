@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
-export default function BasicMenu() {
+const Dropdown = params => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   
@@ -13,11 +13,15 @@ export default function BasicMenu() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
 };
+
   const handleClose = (e, value) => {
     console.log("Val: " + value);
     console.log("Event: " + Object.toString(e));
     setCurrentSite(value);
     setAnchorEl(null);
+
+    console.log("Dropdown::handleClick ---> Sending changed dropdown value: " + value);
+    params.setPage(value);
   };
   //TODO: onclick redirect(possibly in effect)
 
@@ -47,9 +51,11 @@ export default function BasicMenu() {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}>
-        <MenuItem key={1} value = "Profile" onClick={e => handleClose(e, "Home")}>Home</MenuItem>
-        <MenuItem key={2} value = "Profile" onClick={e => handleClose(e, "Favourites")}>Favourites</MenuItem>
+        <MenuItem key={1} value = "Home" onClick={e => handleClose(e, "Home")}>Home</MenuItem>
+        <MenuItem key={2} value = "Favourites" onClick={e => handleClose(e, "Favourites")}>Favourites</MenuItem>
       </Menu>
     </div>
   );
-}
+};
+
+export default Dropdown;
