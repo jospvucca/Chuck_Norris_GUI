@@ -6,7 +6,7 @@ import randomJoke from "../../hooksTesting/fakedata";
 
 import CardEl from "../CardEl";
 
-const SingleContainer = () => {
+const SingleContainer = params => {     //params = randomJoke json
 
     const currentJoke = useRef(null);
     const childRef = createRef();
@@ -24,9 +24,9 @@ const SingleContainer = () => {
         return randomJoke;
     }
 
-    useEffect(() => {
-        currentJoke.current = randomJoke;
-    }, []);
+    // useEffect(() => {
+    //     currentJoke.current = randomJoke;
+    // }, []);
 
     return(
         <React.Fragment>
@@ -35,7 +35,7 @@ const SingleContainer = () => {
                     <ArrowLeft sx = {{fontSize: "10rem"}} color = "primary"/>
                 </Button>
 
-                <CardEl />
+                <CardEl jokes = {params.jokes}/>
 
                 <Button onClick={getNext}>
                     <ArrowRight sx = {{fontSize: "10rem"}} color = "primary"/>

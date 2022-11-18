@@ -3,10 +3,9 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Cont
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Stack } from "@mui/system";
 
-const CardEl = forwardRef((props, ref) => {
+const CardEl = params => {      //params = joke json
 
-    console.log("CardEl::props: " + toString(props));
-    console.log("CardEl::Card: " + JSON.stringify(ref));
+    console.log("CardEl::params: " + JSON.stringify(params.jokes));
     const [value, setValue] = useState("DEFAULT");
     const [isLiked, setIsLiked] = useState(false);
     
@@ -26,14 +25,8 @@ const CardEl = forwardRef((props, ref) => {
         setIsLiked(val);
     };
 
-    useImperativeHandle(ref, () => {
-        if(ref !== null || ref !== undefined) {
-            updateValues(ref);
-        }
-    });
-
     return(
-        <Grid item key = {ref} xs = {12} sm = {8} md = {6}>
+        <Grid item key = {params.jokes.id} xs = {12} sm = {8} md = {6}>
             <Card size = "lg" sx = {{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                 <CardMedia image = "https://source.unsplash.com/random" title = "imagetitle"/>      {/* image not showing, needs to implement it in theme */}
                 <CardContent>
@@ -50,7 +43,7 @@ const CardEl = forwardRef((props, ref) => {
                             </Button>
                         }
                     </Stack>
-                    <Typography>This is where the joke is displayed</Typography>
+                    <Typography>{JSON.stringify(params.jokes)}</Typography>
                 </CardContent>
                 <CardActions>
                     <Button size = "small" color = "primary">Like</Button>
@@ -59,7 +52,7 @@ const CardEl = forwardRef((props, ref) => {
             </Card>
         </Grid>
     );
-});
+};
 
 export default CardEl;
 

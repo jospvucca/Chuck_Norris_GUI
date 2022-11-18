@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { CssBaseline } from '@mui/material';
+import { CircularProgress, CssBaseline } from '@mui/material';
 
 import './App.css';
 import './headers/Title';
@@ -7,57 +7,15 @@ import Title from './headers/Title';
 import Header from './headers/Header';
 import Body from './content/Body';
 import Footer from './footing/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const App = () => {
 
   const [page, setPage] = useState("Home");
 
-  //  ----  ----  LOGIC ----  ----  //
-  // const [loading, setLoading] = useState(false);
-  // const [jokes, setJokes] = useState([]);
-  // const [liked, setLiked] = useState(() => {
-  //   return getStorageValue();
-  // });
-
-  // const Spinner = () => {
-  //   return (
-  //     <div style={{ textAlign: "center", padding: "2rem" }}>
-  //       <CircularProgress />
-  //     </div>
-  //   );
-  // };
-
-  // function Like(key, value) {
-  //   useEffect(() => {
-  //     localStorage.setItem(key, JSON.stringify(value));
-  //   }, [key, value]);
-  // }
-
-  // function getStorageValue() {
-  //   const saved = localStorage.getItem("oo");
-  //   const initial = JSON.parse(saved);
-  //   return initial;
-  // }
-
-  // function getRandom() {
-  //   return axios
-  //     .get("https://api.chucknorris.io/jokes/random")
-  //     .then(res => {
-  //       setJokes(res.data);
-  //       setLoading(false);
-  //     })
-  //     .catch(err => console.error(":( Axios error ---> " + err));
-  // }
-  // useEffect(() => {
-  //   setLoading(true);
-  //   getRandom();
-  // }, []);
-  ////////////////////////////////////
-
   return(
     <div className = "App">
-        {/* <Title /> */}
         <Header setPage = {setPage}/>
         <Body page = {page}/>
         <Footer />
