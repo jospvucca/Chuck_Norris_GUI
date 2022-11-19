@@ -8,10 +8,14 @@ const Body = params => {
 
   //  ----  ----  LOGIC ----  ----  //
   const [loading, setLoading] = useState(false);
-  const [jokes, setJokes] = useState([]);
-//   const [liked, setLiked] = useState(() => {
-//     return getStorageValue();
-//   });    -- todo
+  const [jokes, setJokes] = useState(null);
+  const [likedJokes, setLikedJokes] = useState([]);
+
+  //  ----  ----  LOCAL STORAGE ----  ----  //
+  function getStorageValue() {
+    //TODO: this will be in useState(get this function) for likedJokes
+  }
+  ////////////////////////////////////////////
 
   const Spinner = () => {
     return (
@@ -20,18 +24,6 @@ const Body = params => {
         </div>
      );
   };
-
-//   function Like(key, value) {
-//     useEffect(() => {
-//       localStorage.setItem(key, JSON.stringify(value));
-//     }, [key, value]);
-//   }
-
-//   function getStorageValue() {
-//     const saved = localStorage.getItem("oo");
-//     const initial = JSON.parse(saved);
-//     return initial;
-//   }
 
   function getRandom() {
     return axios
@@ -47,7 +39,7 @@ const Body = params => {
   useEffect(() => {
     setLoading(true);
     getRandom();
- }, []);
+  }, []);
   ////////////////////////////////////
 
     return(
@@ -73,9 +65,9 @@ const Body = params => {
                     Would you kindly try out our jokes API?
                 </Typography>
 
-                {   loading === true ? <Spinner /> :
+                {   loading === true && jokes === null ? <Spinner /> :
                     <Container sx = {{paddingBlockEnd: "10rem", paddingTop: "2rem", width: "auto"}}>
-                        {params.page === "Home" ? <SingleContainer jokes = {jokes}/> : <CardContainer liked = {null}/>}
+                        {params.page === "Home" ? <SingleContainer jokes = {jokes} /> : <CardContainer liked = {null} />}
                     </Container>
                 }
             </main>

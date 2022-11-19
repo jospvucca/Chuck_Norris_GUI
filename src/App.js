@@ -36,3 +36,4 @@ export default App;
 //https://mui.com/material-ui/react-click-away-listener/  - when i want to click randomly to close menu
 
 //https://stackoverflow.com/questions/55726886/react-hook-send-data-from-child-to-parent-component  - sending params child<->parent
+//https://progressivewebninja.com/how-to-pass-multiple-values-in-react-context/ - possible solution for multiple params using context

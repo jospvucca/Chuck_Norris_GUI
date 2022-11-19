@@ -35,7 +35,7 @@ const SingleContainer = params => {     //params = randomJoke json
                     <ArrowLeft sx = {{fontSize: "10rem"}} color = "primary"/>
                 </Button>
 
-                <CardEl jokes = {params.jokes}/>
+                <CardEl jokes = {params.jokes} />
 
                 <Button onClick={getNext}>
                     <ArrowRight sx = {{fontSize: "10rem"}} color = "primary"/>
