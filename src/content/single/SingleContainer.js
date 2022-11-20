@@ -6,7 +6,10 @@ import randomJoke from "../../hooksTesting/fakedata";
 
 import CardEl from "../CardEl";
 
-const SingleContainer = params => {     //params = randomJoke json
+const SingleContainer = ({jokes, likedJokes}) => {     //params = randomJoke json
+
+    console.log("SingleContainer::jokes: " + JSON.stringify(jokes));
+    console.log("SingleContainer::likedJokes: " + likedJokes);
 
     const currentJoke = useRef(null);
     const childRef = createRef();
@@ -35,7 +38,7 @@ const SingleContainer = params => {     //params = randomJoke json
                     <ArrowLeft sx = {{fontSize: "10rem"}} color = "primary"/>
                 </Button>
 
-                <CardEl jokes = {params.jokes} />
+                <CardEl jokes = {jokes} likedJokes = {likedJokes}/>
 
                 <Button onClick={getNext}>
                     <ArrowRight sx = {{fontSize: "10rem"}} color = "primary"/>

@@ -3,9 +3,13 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Cont
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Stack } from "@mui/system";
 
-const CardEl = params => {      //params = joke json
+const CardEl = ({jokes, likedJokes}) => {      //params = joke json
 
-    console.log("CardEl::params: " + JSON.stringify(params.jokes));
+    console.log("CardEl::params: " + JSON.stringify(jokes));
+    // console.log("CardEl::params::unstringified: " + JSON.parse(toString(jokes)));
+
+    console.log("CardEl::likedJokes: " + likedJokes);
+
     // const [value, setValue] = useState("DEFAULT");
     const [isLiked, setIsLiked] = useState(false);
     const [cardStorage, setCardStorage] = useState([]);
@@ -34,28 +38,28 @@ const CardEl = params => {      //params = joke json
 
     return(
         <div>
-        {params.jokes !== null ? 
-        <Grid item key = {params.jokes.id} xs = {12} sm = {8} md = {6}>
+        {jokes !== null ? 
+        <Grid item key = {1} xs = {12} sm = {8} md = {6}>
             <Card size = "lg" sx = {{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "15rem"}}>
                 <CardMedia image = "https://source.unsplash.com/random" title = "imagetitle"/>      {/* image not showing, needs to implement it in theme */}
                 <CardContent>
                     <Stack direction = "row" spacing={12} divider = {<Divider orientation = "horizontal" />} paddingBottom = {2}>
-                        <Typography gutterBottom variant="subtitle1" sx = {{fontSize: 12}}>{params.jokes.data.id}</Typography>
+                        <Typography gutterBottom variant="subtitle1" sx = {{fontSize: 12}}>{JSON.stringify(jokes)}</Typography>
                         {/* <div /> */}
                         {
                             isLiked === false ?
                             <Button size = "lg" sx = {{position: "relative", placeContent: "space-between", justifyContent: "space-between"}}
-                                 onClick={() => {updateLiked(); StoreLiked(params.jokes.data.id, params.jokes.data);}}>
+                                 onClick={() => {updateLiked(); StoreLiked(jokes, jokes);}}>
                                 <FavoriteBorder />
                             </Button> 
                             : 
                             <Button size = "lg" sx = {{position: "relative", placeContent: "space-between", justifyContent: "space-between"}}
-                                onClick={() => {updateLiked(); RemoveLiked(params.jokes.data.id);}}>
+                                onClick={() => {updateLiked(); RemoveLiked(jokes);}}>
                                 <Favorite />
                             </Button>
                         }
                     </Stack>
-                    <Typography>{params.jokes.data.value}</Typography>
+                    <Typography>{JSON.stringify(jokes)}</Typography>
                 </CardContent>
                 {/* <CardActions sx={{border: ""}}>
                     <Stack>

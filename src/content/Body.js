@@ -30,6 +30,9 @@ const Body = params => {
       .get("https://api.chucknorris.io/jokes/random")
       .then(res => {
         console.log("Axios::/random::Returned ---> " + JSON.stringify(res));
+
+        //TODO!!: create an object with all fields( you can see them when you load app). Save data into that object and setJokes as that object, then send the object(already done) to childs into cardEl so its easier to read
+
         setJokes(res);
         setLoading(false);
       })
@@ -67,7 +70,10 @@ const Body = params => {
 
                 {   loading === true && jokes === null ? <Spinner /> :
                     <Container sx = {{paddingBlockEnd: "10rem", paddingTop: "2rem", width: "auto"}}>
-                        {params.page === "Home" ? <SingleContainer jokes = {jokes} /> : <CardContainer liked = {null} />}
+                        { params.page === "Home" ? 
+                          <SingleContainer jokes = {jokes} likedJokes = {likedJokes}/> :
+                          <CardContainer liked = {null} />
+                        }
                     </Container>
                 }
             </main>
